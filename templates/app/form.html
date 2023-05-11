@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    {% load static %}
+  <title>Example Form</title>
+  <style>
+    body {
+      background-image: url("{% static 'images/add.avif' %}");
+      background-size: cover;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      color:white;
+    }
+    
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] , a  {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover , a:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+    <h1> Add item </h1>
+  <form method="post">
+
+
+    {% csrf_token %}
+    <label for="name">Name of Item :</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="Discription">Discription:</label>
+    <input type="text" id="Discription" name="dis" required>
+
+    <label for="Price">Price</label>
+    <input type="text" id="Price" name="price">
+
+    <label for="dob">Expery Date</label>
+    <input type="date" id="dob" name="eob">
+
+    <label for="s_name">Seller of Item :</label>
+    <input type="text" id="s_name" name="s_name" required>
+
+    <label for="s_loc">Seller Location</label>
+    <input type="text" id="s_loc" name="s_loc" required>
+
+    <label for="email">email:</label>
+    <input type="text" id="email" name="email" required>
+
+
+    <input type="submit" value="Submit">
+    <a href="{% url 'home' %}">BACK</a>
+  </form>
+</body>
+</html>

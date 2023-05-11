@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Policies</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insurance Policies</h1>
+    <a href="{% url 'add' %}">Add Insurance Policy</a>
+    <a href="{% url 'home' %}">HOME</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Policy Number</th>
+                <th>Policy Holder</th>
+                <th>Crop Insured</th>
+                <th>Acres Insured</th>
+                <th>Premium Amount</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for insurance in insurances %}
+                <tr>
+                    <td>{{ insurance.policy_number }}</td>
+                    <td>{{ insurance.policy_holder }}</td>
+                    <td>{{ insurance.crop_insured }}</td>
+                    <td>{{ insurance.acres_insured }}</td>
+                    <td>{{ insurance.premium_amount }}</td>
+                    <td>{{ insurance.start_date }}</td>
+                    <td>{{ insurance.end_date }}</td>
+                </tr>
+            </tbody>
+        
+            {% endfor %}
+
+
+        </table>
+    </body>
+    </html>

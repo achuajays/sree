@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .offer-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .offer-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        .offer-details h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .offer-details p {
+            margin-bottom: 5px;
+        }
+
+        .accept-link {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Offers</h1>
+    <ul class="offer-list">
+        {% for offer in  form  %}
+            <li>
+                <div class="offer-card">
+                    <div class="offer-details">
+                        <h2>Offer for {{ offer.vegetable.name }}</h2>
+                        <p>Price Offered: ${{ offer.price_offered }}</p>
+                        <p>Quantity Offered: {{ offer.quantity_offered }}</p>
+                        <p>Name: {{ offer.name }}</p>
+                        <p>Address: {{ offer.address }}</p>
+                        <p>Email: {{ offer.email }}</p>
+                    </div>
+                    <div class="offer-actions">
+                        <a class="accept-link" href="{% url 'accept_offer' offer.id %}">Accept</a>
+                    </div>
+                </div>
+                
+            </li>
+        {% empty %}
+            <li>No offers available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">BACK</a> 
+</body>
+</html>

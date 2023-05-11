@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vegetable List</title>
+</head>
+<body>
+    <h1>Vegetable List</h1>
+    <ul>
+        {% for vegetable in vegetables %}
+            <li>
+                {{ vegetable.name }} - ${{ vegetable.price }}
+                <a href="{% url 'make_offer' vegetable.id %}">Make Offer</a>
+            </li>
+        {% empty %}
+            <li>No vegetables available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

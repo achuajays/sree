@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-image: url('static/images/s.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+h1 {
+  color: #333;
+}
+
+.shop-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 500px;
+  background-color: #fff;
+}
+
+.shop-box h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.shop-box p {
+  margin-top: 0;
+}
+
+
+a{
+    color:white;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1 style="color:white;">List of Shops</h1>
+    <div class="shop-container">
+        {% for shop in shops %}
+        <div class="shop-box">
+            <h2>{{ shop.name }}</h2>
+            <p>Address: {{ shop.address }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'add_shop' %}">Add Shop</a>
+    <a href="{% url 'home' %}">BACK</a>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Offer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/images/of.avif');
+            background-size: cover;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width:200px;
+            padding:10px;
+            margin-bottom:20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input , textarea {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            box-sizing: border-box;
+            padding:10px;
+            margin-bottom:20px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover  {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Make Offer for {{ vegetable.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="price_offered">Price Offered:</label>
+        <input type="number" name="price_offered" step="0.01" required>
+        <br>
+        <label for="quantity_offered">Quantity Offered:</label>
+        <input type="number" name="quantity_offered" required>
+        <br>
+        <label for="name">Name</label>
+        <input type="text" name="name" required>
+        <label for="email">email</label>
+        <input type="text" name="e" required>
+        <br>
+        <label for="email">ADDRESS</label>
+        <textarea name="email"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

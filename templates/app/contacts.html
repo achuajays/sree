@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Details</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #333333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Details</h1>
+    <ul>
+        {% for contact in contacts %}
+        <li>
+            <strong>Name:</strong> {{ contact.name }}<br>
+            <strong>Email:</strong> {{ contact.email }}<br>
+            <strong>Phone Number:</strong> {{ contact.phone_number }}<br>
+            <strong>Message:</strong> {{ contact.message }}
+        </li>
+        {% empty %}
+        <li>No contact details found.</li>
+        {% endfor %}
+        <a href="{% url 'ad_ho' %}">BACK</a>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page-title {
+    background-color: #ddd;
+    padding: 20px;
+}
+
+.page-title h1 {
+    font-size: 24px;
+}
+
+.order-list {
+    margin: 20px;
+}
+
+.order-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.order-details h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.order-details p {
+    margin-bottom: 5px;
+}
+
+.order-actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.empty-state {
+    margin: 20px;
+}
+
+.empty-state p {
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="page-title">
+        <h1>My Orders</h1>
+    </div>
+
+    <div class="order-list">
+        {% if form %}
+            {% for order in form %}
+                <div class="order-card">
+                    <div class="order-details">
+                        <h2>Order Number: #{{ order.name }}</h2>
+                        <p>Date: {{ order.order }}</p>
+                        <p>Status: {{ order.address }}</p>
+                        <p>Total: ${{ order.price }}</p>
+                    </div>cccc
+                    <div class="order-actions">
+                        <a href="{% url 'or_ca' order.id %}">ACCEPT ORDER</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <p>You have no orders.</p>
+                <a href="#">Start Shopping</a>
+            </div>
+        {% endif %}  
+        <a href="{% url 'myorder' %}">BACK</a>
+
+</body>
+</html>

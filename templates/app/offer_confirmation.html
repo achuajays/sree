@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Offer Confirmation</title>
+</head>
+<body>
+    <h1>Offer Confirmation</h1>
+    <p>Your offer for {{ offer.vegetable.name }} at ${{ offer.price_offered }} has been submitted.</p>
+    <p>Quantity: {{ offer.quantity_offered }}</p>
+    <a href="{% url 'home' %}">BACK</a>
+</body>
+</html>
